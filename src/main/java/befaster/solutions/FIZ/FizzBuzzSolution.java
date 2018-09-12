@@ -46,9 +46,9 @@ public class FizzBuzzSolution {
 
         final Map<String, List<String>> collect = Arrays.stream(number.toString().split("")).collect(Collectors.groupingBy(e -> e));
         if (collect.entrySet().size() == 1 && number % 2 == 0) {
-            return Optional.of("fake deluxe");
-        } else if (collect.entrySet().size() == 1) {
             return Optional.of("deluxe");
+        } else if (collect.entrySet().size() == 1) {
+            return Optional.of("fake deluxe");
         } else {
             return Optional.empty();
         }
