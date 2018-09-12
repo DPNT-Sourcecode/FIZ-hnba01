@@ -1,5 +1,7 @@
 package befaster.solutions.FIZ;
 
+import static java.lang.Integer.valueOf;
+
 public class FizzBuzzSolution {
 
     public String fizzBuzz(Integer number) {
@@ -16,10 +18,15 @@ public class FizzBuzzSolution {
     }
 
     private boolean isFizz(Integer number) {
-        return number % 3 == 0 || number.toString().contains("3");
+        return containsOrIsMultipleOf(number, valueOf(3));
+
     }
 
     private boolean isBuzz(Integer number) {
-        return number % 3 == 0 || number.toString().contains("3");
+        return containsOrIsMultipleOf(number, valueOf(5));
+    }
+
+    private boolean containsOrIsMultipleOf(Integer number, Integer expectedNumber) {
+        return number % expectedNumber == 0 || number.toString().contains(expectedNumber.toString());
     }
 }
