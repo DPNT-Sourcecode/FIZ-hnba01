@@ -17,9 +17,9 @@ public class FizzBuzzSolution {
         } else if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
-            return deluxWord.map(s -> "fizz " + s).orElse("fizz delux");
+            return deluxWord.map(s -> "fizz " + s).orElse(containsAndIsMultipleOf(number, valueOf(3)) ? "fizz delux" : "fizz");
         } else if (isBuzz(number)) {
-            return deluxWord.map(s -> "buzz " + s).orElse("buzz delux");
+            return deluxWord.map(s -> "buzz " + s).orElse(containsAndIsMultipleOf(number, valueOf(5)) ? "buzz delux" : "buzz");
         } else return deluxWord.orElseGet(number::toString);
 
     }
@@ -35,6 +35,10 @@ public class FizzBuzzSolution {
 
     private boolean containsOrIsMultipleOf(Integer number, Integer expectedNumber) {
         return number % expectedNumber == 0 || number.toString().contains(expectedNumber.toString());
+    }
+
+    private boolean containsAndIsMultipleOf(Integer number, Integer expectedNumber) {
+        return number % expectedNumber == 0 && number.toString().contains(expectedNumber.toString());
     }
 
     private Optional<String> getDelux(Integer number) {
