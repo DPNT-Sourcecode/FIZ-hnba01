@@ -10,14 +10,16 @@ import java.util.stream.Collectors;
 public class FizzBuzzSolution {
 
     public String fizzBuzz(Integer number) {
-        if (isFizz(number) && isBuzz(number) && ) {
-            return "fizz buzz";
+        if (isFizz(number) && isBuzz(number) && isDeluxe(number)) {
+            return "fizz buzz deluxe";
         } else if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
             return "fizz";
         } else if (isBuzz(number)) {
             return "buzz";
+        } else if (isDeluxe(number)) {
+            return "deluxe";
         } else {
             return number.toString();
         }
