@@ -2,25 +2,18 @@ package befaster.solutions.FIZ;
 
 import static java.lang.Integer.valueOf;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class FizzBuzzSolution {
 
     public String fizzBuzz(Integer number) {
-        final Optional<String> deluxWord = getDelux(number);
-        if (isFizz(number) && isBuzz(number) && deluxWord.isPresent()) {
-            return "fizz buzz " + deluxWord.get();
-        } else if (isFizz(number) && isBuzz(number)) {
+        if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
-            return deluxWord.map(s -> "fizz " + s).orElse(containsAndIsMultipleOf(number, valueOf(3)) ? "fizz deluxe" : "fizz");
+            return getDelux(number, valueOf(3)).map(s -> "fizz " + s).orElse("fizz");
         } else if (isBuzz(number)) {
-            return deluxWord.map(s -> "buzz " + s).orElse(containsAndIsMultipleOf(number, valueOf(5)) ? "buzz deluxe" : "buzz");
-        } else return deluxWord.orElseGet(number::toString);
+            return getDelux(number, valueOf(5)).map(s -> "buzz " + s).orElse("buzz");
+        } else return number.toString();
 
     }
 
