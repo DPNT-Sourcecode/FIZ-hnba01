@@ -8,7 +8,14 @@ public class FizzBuzzSolution {
 
     public String fizzBuzz(Integer number) {
         if (isFizz(number) && isBuzz(number)) {
-            return "fizz buzz";
+            if (getDelux(number, valueOf(3)).isPresent()) {
+                return "fizz buzz " + getDelux(number, valueOf(3)).get();
+            } else if (getDelux(number, valueOf(5)).isPresent()) {
+                return "fizz buzz " + getDelux(number, valueOf(5)).get();
+            } else {
+                return "fizz buzz";
+            }
+
         } else if (isFizz(number)) {
             return getDelux(number, valueOf(3)).map(s -> "fizz " + s).orElse("fizz");
         } else if (isBuzz(number)) {
