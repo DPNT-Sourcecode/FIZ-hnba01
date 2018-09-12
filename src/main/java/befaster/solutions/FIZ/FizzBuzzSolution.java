@@ -41,17 +41,25 @@ public class FizzBuzzSolution {
         return number % expectedNumber == 0 && number.toString().contains(expectedNumber.toString());
     }
 
-    private Optional<String> getDelux(Integer number) {
+    private Optional<String> getDelux(Integer number, Integer expectedNumber) {
 
-        // no need to process stream if number is less than 10
-        if (number < 10) {
-            return Optional.empty();
-        }
+//        // no need to process stream if number is less than 10
+////        if (number < 10) {
+////            return Optional.empty();
+////        }
+////
+////        final Map<String, List<String>> collect = Arrays.stream(number.toString().split("")).collect(Collectors.groupingBy(e -> e));
+////        if (collect.entrySet().size() == 1 && number % 2 == 0) {
+////            return Optional.empty();
+////        } else if (collect.entrySet().size() == 1) {
+////            return Optional.of("fake deluxe");
+////        } else {
+////            return Optional.empty();
+////        }
 
-        final Map<String, List<String>> collect = Arrays.stream(number.toString().split("")).collect(Collectors.groupingBy(e -> e));
-        if (collect.entrySet().size() == 1 && number % 2 == 0) {
-            return Optional.empty();
-        } else if (collect.entrySet().size() == 1) {
+        if (number % expectedNumber == 0 && number.toString().contains(expectedNumber.toString()) && number % 2 == 0) {
+            return Optional.of("deluxe");
+        } else if (number % expectedNumber == 0 && number.toString().contains(expectedNumber.toString())) {
             return Optional.of("fake deluxe");
         } else {
             return Optional.empty();
