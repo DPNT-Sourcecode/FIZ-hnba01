@@ -2,10 +2,17 @@ package befaster.solutions.FIZ;
 
 import static java.lang.Integer.valueOf;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 public class FizzBuzzSolution {
 
     public String fizzBuzz(Integer number) {
-        if (isFizz(number) && isBuzz(number)) {
+        if (isFizz(number) && isBuzz(number) && ) {
+            return "fizz buzz";
+        } else if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
             return "fizz";
@@ -31,6 +38,13 @@ public class FizzBuzzSolution {
     }
 
     private boolean isDeluxe(Integer number) {
-        number.toString().
+
+        // no need to process stream if number is less than 10
+        if (number < 10) {
+            return false;
+        }
+
+        final Map<String, List<String>> collect = Arrays.stream(number.toString().split("")).collect(Collectors.groupingBy(e -> e));
+        return collect.entrySet().size() == 1;
     }
 }
