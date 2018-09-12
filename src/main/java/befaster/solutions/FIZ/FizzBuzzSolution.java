@@ -29,4 +29,8 @@ public class FizzBuzzSolution {
     private boolean containsOrIsMultipleOf(Integer number, Integer expectedNumber) {
         return number % expectedNumber == 0 || number.toString().contains(expectedNumber.toString());
     }
+
+    private boolean isDeluxe(Integer number) {
+        number.toString().
+    }
 }
