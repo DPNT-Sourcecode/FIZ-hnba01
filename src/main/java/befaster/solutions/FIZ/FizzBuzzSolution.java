@@ -17,9 +17,9 @@ public class FizzBuzzSolution {
         } else if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
-            return deluxWord.map(s -> "fizz " + s).orElse("fizz");
+            return deluxWord.map(s -> "fizz " + s).orElse("fizz delux");
         } else if (isBuzz(number)) {
-            return deluxWord.map(s -> "buzz " + s).orElse("buzz");
+            return deluxWord.map(s -> "buzz " + s).orElse("buzz delux");
         } else return deluxWord.orElseGet(number::toString);
 
     }
@@ -46,7 +46,7 @@ public class FizzBuzzSolution {
 
         final Map<String, List<String>> collect = Arrays.stream(number.toString().split("")).collect(Collectors.groupingBy(e -> e));
         if (collect.entrySet().size() == 1 && number % 2 == 0) {
-            return Optional.of("deluxe");
+            return Optional.empty();
         } else if (collect.entrySet().size() == 1) {
             return Optional.of("fake deluxe");
         } else {
