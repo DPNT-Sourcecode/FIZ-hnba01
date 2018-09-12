@@ -17,9 +17,9 @@ public class FizzBuzzSolution {
         } else if (isFizz(number) && isBuzz(number)) {
             return "fizz buzz";
         } else if (isFizz(number)) {
-            return deluxWord.map(s -> "fizz " + s).orElse(containsAndIsMultipleOf(number, valueOf(3)) ? "fizz delux" : "fizz");
+            return deluxWord.map(s -> "fizz " + s).orElse(containsAndIsMultipleOf(number, valueOf(3)) ? "fizz deluxe" : "fizz");
         } else if (isBuzz(number)) {
-            return deluxWord.map(s -> "buzz " + s).orElse(containsAndIsMultipleOf(number, valueOf(5)) ? "buzz delux" : "buzz");
+            return deluxWord.map(s -> "buzz " + s).orElse(containsAndIsMultipleOf(number, valueOf(5)) ? "buzz deluxe" : "buzz");
         } else return deluxWord.orElseGet(number::toString);
 
     }
